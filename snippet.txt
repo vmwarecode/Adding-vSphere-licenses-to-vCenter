@@ -1,0 +1,9 @@
+  - name: Add new vCenter licenses from file licences.txt
+    vcenter_license:
+       hostname: "{{ vcenter_name }}"
+       username: "{{ vcenter_user }}"
+       password: "{{ vcenter_pass }}"
+       validate_certs: "{{ vcenter_validate_certs }}"
+       license: "{{item}}"
+       state: present 
+    with_lines: cat licences.txt
